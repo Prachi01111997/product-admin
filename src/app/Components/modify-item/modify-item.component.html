@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="">
+            <h1 class="display-6">Create Inventory Item</h1>
+        </div>
+    </div>
+    <div class="container">
+          <form [formGroup]="CreateInventoryItemForm" (ngSubmit)="onSubmit(CreateInventoryItemForm.value) ">
+            <div class="row">
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group" [ngClass]="{
+              'has-error': f.name.invalid && f.name.dirty,
+              'has-success': f.name.valid && f.name.dirty
+            }">
+                  <label class="form-label" for="name">Item Name<span class="form-required">*</span></label>
+                  <input class="form-control" name="subject" [value]="test.name" placeholder="Enter Item Name Here..."
+                    formControlName="name" id="name">
+                  <div class="form-group" *ngIf="f.name.errors && (f.name.dirty || f.name.touched)">
+                    <p *ngIf="f.name.errors.required" class="red">Item Name is required</p>
+                    <p *ngIf="f.name.errors.minlength && !f.name.errors.pattern" class="red">Item Name must be 4 characters long</p>
+                    <p *ngIf="f.name.errors.pattern" class="red">Item Name must not be an Integer Number</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group" [ngClass]="{
+              'has-error': f.description.invalid && f.description.dirty,
+              'has-success': f.description.valid && f.description.dirty
+            }">
+                  <label class="form-label" for="description">Item Description<span class="form-required">*</span></label>
+                  <input class="form-control" name="description" [value]="test.description" placeholder="Enter Item Description Here..."
+                    formControlName="description" id="description">
+                  <div class="form-group" *ngIf="f.description.errors && (f.description.dirty || f.description.touched)">
+                    <p *ngIf="f.description.errors.required" class="red">Item Description is required</p>
+                    <p *ngIf="f.description.errors.minlength" class="red">Item Description must be 10 characters long</p>
+                    <p *ngIf="f.description.errors.maxlength" class="red">Item Description not more than 30 characters long</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group" [ngClass]="{
+                  'has-error': f.price.invalid && f.price.dirty,
+                  'has-success': f.price.valid && f.price.dirty
+                }">
+                      <label class="form-label" for="price">Item Price<span class="form-required">*</span> </label>
+                      <input class="form-control" name="price" [value]="test.price" placeholder="Enter Item Price Here..."
+                        formControlName="price" id="price">
+                      <div class="form-group" *ngIf="f.price.errors && (f.price.dirty || f.price.touched)">
+                        <p *ngIf="f.price.errors.required" class="red">Item Price is required</p>
+                        <p *ngIf="f.price.errors.minlength && !f.price.errors.pattern" class="red">Item Price must be 2 characters long</p>
+                        <p *ngIf="f.price.errors.maxlength && !f.price.errors.pattern" class="red">Item Price not more than 8 characters long</p>
+                        <p *ngIf="f.price.errors.pattern" class="red"> Please Enter the Item Price matching pattern
+                          12.12 or 12</p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+             
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="inner">
+                    <button class="buttonCommon submitGreenBtn" [disabled]="CreateInventoryItemForm.invalid">Update</button>
+                  </div>
+                  <div class="inner">
+                  <button class="buttonCommon submitRedBtn" (click)="CancelUpdate()">Cancel</button>
+                </div>
+                </div>
+              </div>
+            <!-- <div class="form-footer">
+              <button class="btn btn-success" [disabled]="CreateDsrForm.invalid">Submit</button>
+              <button class="btn btn-primary" (click)="CancelUpdate()">Cancel</button>
+            </div> -->
+            <!-- /.row -->
+          </form>
+    </div>
+</div>

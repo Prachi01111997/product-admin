@@ -6,8 +6,108 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.20.0/dist/bootstrap-table.min.css"> 
 </head>
 <body>
   <app-root></app-root>
+  <!-- <img id="canvas" src="./assets/screenCapture.png" width="" height=""> -->
+  <!-- <canvas id="canvas" width="1000px" height="500px"></canvas> -->
+    
+  <!-- <script src="../src/assets/screenCapture.png"></script> -->
 </body>
+<!-- <script>
+  cropImage("./assets/screenCapture.png", 0, 0, 200, 200);
+
+
+
+
+//crop the image and draw it to the canvas
+function cropImage(imagePath, newX, newY, newWidth, newHeight) {
+//create an image object from the path
+const originalImage = new Image();
+console.log(originalImage)
+originalImage.src = imagePath;
+
+//initialize the canvas object
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+//wait for the image to finish loading
+originalImage.addEventListener('load', function() {
+
+//set the canvas size to the new width and height
+canvas.width = newWidth;
+canvas.height = newHeight;
+
+//draw the image
+ctx.drawImage(originalImage, newX, newY, newWidth, newHeight, 0, 0, newWidth, newHeight);
+});
+}
+
+
+
+//find the input elements in the html
+const downloadBtn = document.querySelector("button.download");
+
+
+
+//bind a click listener to the download button
+downloadBtn.addEventListener('click', function() {
+//create a temporary link for the download item
+let tempLink = document.createElement('a');
+
+//generate a new filename
+let fileName = `image-cropped.jpg`;
+
+//configure the link to download the resized image
+tempLink.download = fileName;
+tempLink.href = document.getElementById('canvas').src;
+
+//trigger a click on the link to start the download
+tempLink.click();
+});
+</script> -->
+
+
+<!-- <script>
+  function cropImg(){
+    var canvas = document.createElement('canvas');
+    // const canvas = document.getElementById('canvas');
+    console.log(canvas);
+    const ctx = canvas.getContext('2d');
+
+    var image = new Image();
+    image.src = "./assets/screenCapture.png"
+    image.onload = function(){
+      ctx.drawImage(image, 150, 200, 500, 300, 60,60, 500, 300);
+      function download() {
+    var link = document.createElement('a');
+    link.download = 'filename.png';
+    link.href = canvas.toDataURL()
+    link.click();
+  }
+
+  download();
+    }
+  }
+  cropImg();
+</script> -->
+
 </html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="1000px" height="500px"></canvas>
+    
+    <script src="./script.js"></script>
+</body>
+</html> -->
